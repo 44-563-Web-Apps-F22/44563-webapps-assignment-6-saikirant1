@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musician</title>
+</head>
+<body>
+<header>Musician guess by SAI KIRAN THUKIVAKAM</header>
+<br/>
+<form>
+    <label for="sec_musician">Enter the secret Musician name </label>
+    <input type ="password" id="sec_musician" name="secretName" min=10 max=50 step=2 value="Jhon Lennon"> <br>
+
+    <label for="gs_musician">Guess the Musician </label>
+    <input type ="text" id="gs_musician" name="guessMusician" autofocus> <br>
+
+    <input type="button" onclick="checkGuess()" value="Check the Guess">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+        let correct=0;
+        let wrong=0;
+    
+        function  checkGuess(){
+           console.log("Getting form values")
+            SecretMusician = document.getElementById("sec_musician").value
+            guess = document.getElementById("gs_musician").value
+            
+    
+            
+            if(SecretMusician==guess){
+                correct+=1;
+                alert("You got it right");
+            } else {
+                wrong+=1;
+                alert("Wrong");
+            }
+           document.getElementById("result").innerHTML="correct "+correct+"  wrong "+wrong;
+        }
+</script>
+
+</body>
+</html>
