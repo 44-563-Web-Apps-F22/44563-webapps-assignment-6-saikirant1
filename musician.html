@@ -45,5 +45,31 @@
         }
 </script>
 
+<!--swapping images using java scriot-->
+<div class="container">
+    <img id="picture" src="1.jpg" height="100" weight="100" onclick="swapImage()">
+</div>
+<script>
+    var useImage=1
+    var img=document.getElementById("picture")
+    function swapImage(){
+        switch(useImage){
+            case 1:
+                img.src="2.jpg"
+                useImage++
+                break
+            case 2:
+                img.src="3.jpg"
+                useImage++
+                break
+            case 3:
+                img.src="1.jpg"
+                useImage=1
+                break
+            default:
+        }
+    }
+</script>
+
 </body>
 </html>
