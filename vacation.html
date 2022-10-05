@@ -1,46 +1,75 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>using check boxes</title>
-    </head>
- 
+ <title>welcome to the vacation</title>
+ </head>
 <body>
 
-<h2>Sai Kiran selects a vaccation</h2>
+<h2>sai kiran Selects a Vacation</h2>
 
 <form>
-    <label for="form1_age">Travel by Air</label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value="true"> <br>
+    <input type="checkbox" id="air" name="topping1"   
+          value="True">
+        <label for="Air">Travel by Air</label></br>
+      
+    <input type="checkbox" id="dom" name="topping2" 
+           value="True">
+        <label for="domestic">Domestic</label></br>
+      
+    <input type="checkbox" id="resort" name="topping3"   
+           value="False">
+        <label for="resort">Resort</label></br>
 
-    <label for="form1_nick">Domestic</label>
-    <input type ="text" id="form1_nick" name="form1_nick"  value="true"> <br>
+    <input type="button"class="btn btn-secondary"  type="button" onclick="selectVacation()" value="Select a Vacation">
+</form>
+<form>
+    <label for="property">Enter a city</label>
+    <input type ="text" id="property" name="property" value="city"> <br>
 
-    <label for="form1_nick">Resort</label>
-    <input type ="text" id="form1_nick" name="form1_nick"  value="false"> <br>
+    <label for="check">Enter price</label>
+    <input type ="text" id="value" name="check"><br>
 
-    <input type="button" onclick="selectVaccation()" value="Get values from form">
+    <input type="button" class="btn btn-secondary" type="button" onclick="updateVacation()" value="Update the Vacation">
 </form>
 
 
 <p id="result">This text will be replaced </p>
 
-<script>
-    let my_vacation={}
-function selectVacation (){
-    let travel=document.getElementById("ford1_travel").checked;
-    let domestics=document.getElementById("ford1_domestic").checked;
-    let resorts=document.getElementById("ford1_resort").checked;
-    my_vacation={"air":travel,"domestic":domestics,"resort":resorts};
-    console.log(my_vacation)
-    document.getElementById("result").innerHTML=JSON.stringify(my_vacation);
+<script> 
+
+var my_vacation={air:true,domestic:true,resort:true}
+function selectVacation(){
+    my_vacation={}
+    air = document.getElementById("air").value
+    dom = document.getElementById("dom").value
+    resort = document.getElementById("resort").value
+    ou = document.getElementById("result")
+    if(document.getElementById("air").checked){
+        my_vacation.air=true
+      }
+    else{
+        my_vacation.air=false
+    }
+    if(document.getElementById("dom").checked){
+        my_vacation.domestic=true        
+      }
+    else{
+        my_vacation.domestic=false
+    }
+    if(document.getElementById("resort").checked){
+        my_vacation.resort=true
+      }
+    else{my_vacation.resort=false}
+    ou.innerHTML=JSON.stringify(my_vacation)    
 }
 function updateVacation(){
-    let city=document.getElementById("ford1_city").value;
-    let price=document.getElementById("ford1_price").value;
-    my_vacation["city"]=city;
-    my_vacation["price"]=price;
-    document.getElementById("result").innerHTML="The Data is"+JSON.stringify(my_vacation)
-}
+        var s=document.getElementById("property").value
+        var p=document.getElementById("value").value
+        my_vacation[s]=p
+        ou.innerHTML=JSON.stringify(my_vacation)
+    }
 </script>
+
+
 </body>
 </html> 
