@@ -26,6 +26,7 @@
 
         let correct=0;
         let wrong=0;
+        let count=0;
     
         function  checkGuess(){
            console.log("Getting form values")
@@ -34,12 +35,24 @@
             
     
             
-            if(SecretMusician==guess){
+            if(SecretMusician==guess && count<3){
                 correct+=1;
+                count=0;
                 alert("You got it right");
-            } else {
-                wrong+=1;
-                alert("Wrong");
+            } 
+            
+            else {
+                count+=1;
+                if(count<3)
+                {
+                    wrong+=1;
+                    alert("Wrong");
+                }
+                else
+                {
+                    alert("sorry! game over")
+                }
+                
             }
            document.getElementById("result").innerHTML="correct "+correct+"  wrong "+wrong;
         }
